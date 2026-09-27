@@ -1,0 +1,18 @@
+{
+  "_note": "Summary values computed by the group from the source datasets (same numbers as the HTML prototype). Raw data files are not included.",
+  "vitals": {
+    "source": "Patient vital-sign records",
+    "n": 200020,
+    "measures": [
+      {"measure": "Heart rate", "unit": "bpm", "mean": 79.5, "min": 60, "max": 99, "organ": "heart"},
+      {"measure": "Respiratory rate", "unit": "breaths/min", "mean": 15.5, "min": 12, "max": 19, "organ": "lung"},
+      {"measure": "SpO2", "unit": "%", "mean": 97.5, "min": null, "max": null, "organ": "lung"},
+      {"measure": "Systolic BP", "unit": "mmHg", "mean": 124.4, "min": 110, "max": 139, "organ": "heart"},
+      {"measure": "Diastolic BP", "unit": "mmHg", "mean": 79.5, "min": 70, "max": 89, "organ": "heart"},
+      {"measure": "Mean arterial pressure", "unit": "mmHg", "mean": 94.5, "min": null, "max": null, "organ": "heart"}
+    ]
+  },
+  "ecg": {"source": "MIT-BIH Arrhythmia Database", "n_beats": 109446, "normal_pct": 82.8, "organ": "heart"},
+  "eeg": {"source": "EEG recordings", "n": 2132, "min": 44, "max": 245, "unit": "a.u.", "organ": "brain"},
+  "airflow": {"source": "Peak expiratory flow readings", "n": 300, "min": 150, "max": 400, "unit": "L/min", "organ": "lung"}
+}

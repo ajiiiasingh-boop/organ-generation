@@ -1,0 +1,150 @@
+{
+  "steps": [
+    {
+      "key": "tissue",
+      "title": "Tissue / cell type composition",
+      "short": "Tissue",
+      "prompt": "Primary cell type in the sample",
+      "real": false,
+      "options": {
+        "neurons": "Neurons",
+        "cardiac": "Cardiac muscle",
+        "alveolar": "Alveolar tissue"
+      }
+    },
+    {
+      "key": "structure",
+      "title": "Structural pattern",
+      "short": "Structure",
+      "prompt": "How the tissue is organised",
+      "real": false,
+      "options": {
+        "branching": "Branching network",
+        "chambered": "Chambered",
+        "layered": "Layered"
+      }
+    },
+    {
+      "key": "electrical",
+      "title": "Signal / functional reading",
+      "short": "Signal",
+      "prompt": "Based on actual computed values from uploaded datasets, not textbook ranges",
+      "real": true,
+      "options": {
+        "cardiac": "Rhythmic electrical (ECG-like)",
+        "neural": "Variable neural signal (EEG-like)",
+        "airflow": "No electrical signal — airflow reading"
+      },
+      "notes": [
+        "**Cardiac:** 82.8% normal rhythm across 109,446 MIT-BIH beats.",
+        "**Neural:** signal amplitude shifts with state — 44–245 arbitrary units across 2,132 EEG recordings.",
+        "**Airflow:** peak flow 150–400 L/min across 300 patients; no ECG/EEG-type signal is present."
+      ]
+    },
+    {
+      "key": "vitals",
+      "title": "Vital sign domain",
+      "short": "Vitals",
+      "prompt": "Which standard vital-sign category applies to this tissue (200,020 real patient records)",
+      "real": true,
+      "options": {
+        "cardiac": "Heart rate reading",
+        "pulmonary": "Respiratory rate / O₂ reading",
+        "neural": "No standard vital-sign equivalent"
+      },
+      "notes": [
+        "**Heart rate:** mean 79.5 bpm, range 60–99, n = 200,020.",
+        "**Respiratory / O₂:** mean 15.5 breaths/min, range 12–19; mean SpO₂ 97.5%, n = 200,020.",
+        "**Neural:** brain tissue has no standard bpm or breaths-per-minute vital-sign equivalent."
+      ]
+    },
+    {
+      "key": "pressure",
+      "title": "Cardiovascular pressure reading",
+      "short": "Pressure",
+      "prompt": "Blood pressure / MAP signature (same 200,020-record dataset)",
+      "real": true,
+      "options": {
+        "arterial": "Systemic arterial pressure present",
+        "none": "No arterial pressure reading applies"
+      },
+      "notes": [
+        "**Systemic arterial:** mean systolic 124.4 mmHg (110–139); mean diastolic 79.5 mmHg (70–89); mean arterial pressure 94.5 mmHg. Heart / vascular-specific signature."
+      ]
+    },
+    {
+      "key": "movement",
+      "title": "Movement pattern",
+      "short": "Movement",
+      "prompt": "Mechanical behaviour of the tissue",
+      "real": false,
+      "options": {
+        "rhythmic": "Rhythmic contraction",
+        "expand": "Expansion–relaxation",
+        "none": "None"
+      }
+    },
+    {
+      "key": "regen",
+      "title": "Regeneration capacity",
+      "short": "Regeneration",
+      "prompt": "Relative tissue self-repair ability",
+      "real": false,
+      "options": {
+        "low": "Low",
+        "high": "Comparatively higher"
+      }
+    }
+  ],
+
+  "organs": {
+    "brain": {
+      "label": "Brain",
+      "emoji": "🧠",
+      "model": "models/brain.glb",
+      "mesh_color": "#E3B8B0",
+      "about": "Neurons are organised in layers (the neocortex has six). Their electrical activity is variable and is recorded as an EEG. Mature neurons have very limited ability to regenerate.",
+      "profile": {
+        "tissue": "neurons",
+        "structure": "layered",
+        "electrical": "neural",
+        "vitals": "neural",
+        "pressure": "none",
+        "movement": "none",
+        "regen": "low"
+      }
+    },
+    "heart": {
+      "label": "Heart",
+      "emoji": "🫀",
+      "model": "models/heart.glb",
+      "mesh_color": "#B5534A",
+      "about": "Cardiac muscle forms four chambers that contract rhythmically, triggered by electrical impulses from the SA node — the pattern an ECG records. It creates systemic arterial pressure, and adult cardiac muscle regenerates poorly.",
+      "profile": {
+        "tissue": "cardiac",
+        "structure": "chambered",
+        "electrical": "cardiac",
+        "vitals": "cardiac",
+        "pressure": "arterial",
+        "movement": "rhythmic",
+        "regen": "low"
+      }
+    },
+    "lung": {
+      "label": "Lung",
+      "emoji": "🫁",
+      "model": "models/lung.glb",
+      "mesh_color": "#E2A98F",
+      "about": "Alveolar tissue sits at the end of a branching bronchial tree. The lungs expand and relax with every breath; their function is read as airflow, breathing rate and SpO₂ rather than an electrical signal. Alveolar cells can repair themselves comparatively well.",
+      "profile": {
+        "tissue": "alveolar",
+        "structure": "branching",
+        "electrical": "airflow",
+        "vitals": "pulmonary",
+        "pressure": "none",
+        "movement": "expand",
+        "regen": "high"
+      }
+    }
+  }
+}
